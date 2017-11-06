@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Login Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous" />
+
+    <link th:href="@{css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen animated fadeInDown">
+    <div>
+
+        <hr />
+        <h2>Login Form</h2>
+
+        <div th:if="${param.error}" class="alert alert-danger"
+             role="alert">Invalid email or password</div>
+
+        <div th:if="${param.logout}" class="alert alert-success"
+             role="alert">Invalid email or password</div>
+
+        <form class="m-t" id="loginForm" role="form" th:action="@{/login}" method="post">
+            <div class="form-group input-group">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-lock"></span>
+          </span>
+                <input name="email" type="email" id="email"
+                       placeholder="Email" class="form-control" required />
+                <span class="glyphicon"
+                      aria-hidden="true"></span>
+            </div>
+
+            <div class="form-group input-group has-feedback">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-lock"></span>
+          </span>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password" />
+
+                <div class="help-block with-errors"></div>
+            </div>
+            <button type="submit"
+                    class="btn btn-primary block full-width m-b">Login
+            </button>
+
+        </form>
+
+
+    </div>
+</div>
+
+<!-- jQuery-->
+<script
+        src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script
+        src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+<!-- Bootstrap Validator plugin -->
+<script
+        src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+
+</body>
+</html>
